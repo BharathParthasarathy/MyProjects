@@ -1,0 +1,40 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<head>
+    <h1>EMPLOYEE LOGIN TRACKING</h1>
+    <br>
+<br>
+<form method="post" action="{% url 'working-time-new' %}">
+    {% csrf_token %}
+    <button type="submit">PUNCH-IN</button>
+</form>
+<br>
+<form method="post" action="{% url 'working-time-punchout' %}">
+    {% csrf_token %}
+    <button type="submit">PUNCH-OUT</button>
+</form>
+
+    <br>
+    <h3>Start / Stop clock</h3>
+    <button name="Punch-IN" type="submit" value="time" display="time" onclick="getCurrentTime_start()">Start</button>
+    <script>
+        function getCurrentTime_start() {
+            var currentTime = new Date();
+            var message = 'You Punched IN at : ' + currentTime;
+            alert(message);
+        }
+    </script>
+    <button name="Punch-OUT" type="submit" value="time" display="time" onclick="getCurrentTime_end()">Stop</button>
+    <script>
+        function getCurrentTime_end() {
+            var currentTime = new Date();
+            var message = 'You Punched Out at : ' + currentTime;
+            alert(message);
+        }
+    </script>
+
+{% endblock %}

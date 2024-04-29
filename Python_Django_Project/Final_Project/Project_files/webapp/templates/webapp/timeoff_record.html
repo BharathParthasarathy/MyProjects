@@ -1,0 +1,32 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <strong>
+
+        {{records_tof.emp_fname|upper}}
+        {{records_tof.emp_lname|upper}}
+
+    </strong>
+
+    <div class="card-body">
+        <p> <strong> ID: </strong> {{records_tof.emp_id}} </p> 
+        <p> <strong> Time-off_ID </strong> {{records_tof.Timeoff_id}} </p>
+        <p> <strong> Availability </strong> {{records_tof.timeoff_available}} </p>
+
+    </div>
+
+
+</div>
+<br>
+
+    <a href="{% url 'time-off' %}" class="btn btn-secondary"> Return </a> 
+
+    &nbsp;
+
+    <a href="{% url 'delete-record-toff' records_tof.Timeoff_id %}" class="btn btn-danger"> Delete </a>
+
+    
+
+{% endblock %}

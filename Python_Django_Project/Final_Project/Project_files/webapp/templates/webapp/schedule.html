@@ -1,0 +1,43 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body>
+    <h1>Employee Working Schedule</h1>
+    <br>
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col"> EMP_ID </th>
+                <th scope="col"> Assigned schedule </th>
+                <th scope="col"> Total Working Hours </th>
+                <th scope="col"> Employee Name </th>
+
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+        {% if records %}
+
+            {% for record in records %}
+                <tr>
+                    <td> {{record.emp_id}} </td>
+                    <td> {{record.assigned_schedule}} </td>
+                    <td> {{record.total_hours}} </td>
+                    <td> {{record.emp_id.emp_fname}} {{record.emp_id.emp_lname}}</td>
+                    
+                </tr>
+            {% endfor %}
+        {% endif %}
+
+        </tbody>
+
+    </table>
+</body>
+
+{% endblock %}

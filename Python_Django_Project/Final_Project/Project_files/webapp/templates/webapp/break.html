@@ -1,0 +1,41 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<head>
+    <h1>EMPLOYEE BREAK TRACKING</h1>
+    <br>
+<form method="post" action="{% url 'working-time-new' %}">
+    {% csrf_token %}
+    <button type="submit">START_BREAK</button>
+</form>
+<br>
+<form method="post" action="{% url 'working-time-punchout' %}">
+    {% csrf_token %}
+    <button type="submit">END_BREAK</button>
+</form>
+    <br>
+    <h3>Start / Stop clock</h3>
+    <button name="Start Break" type="submit" value="time" display="time" onclick="getCurrentTime_start()">Start</button>
+    <script>
+        function getCurrentTime_start() {
+            var currentTime = new Date();
+            var message = 'Your Break starts at : ' + currentTime;
+            alert(message);
+        }
+    </script>
+    <button name="End Break" type="submit" value="time" display="time" onclick="getCurrenttime_end()">Stop</button>
+    <script>
+        function getCurrenttime_end() {
+            var currentTime = new Date();
+            var message = 'Your Break Ends at : ' + currentTime;
+            alert(message);
+        }
+    </script>
+
+    </head>
+
+
+{% endblock %}s

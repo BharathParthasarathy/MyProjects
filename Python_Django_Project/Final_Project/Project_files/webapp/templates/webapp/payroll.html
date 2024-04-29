@@ -1,0 +1,53 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> View Employee Payroll details here </h5>
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'custom_queryprocessing' %}">
+
+            Generate Paystub
+    </a>
+    <hr>
+
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col"> EMP_ID </th>
+                <th scope="col"> SIN </th>
+                <th scope="col"> EBank Account Number </th>
+                <th scope="col"> Pay-Rate </th>
+                <th scope="col"> Pay Cycle </th>
+                <th scope="col"> View </th>
+
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+        {% if records %}
+
+            {% for record in records %}
+                <tr>
+                    <td> {{record.fk_emp_id}} </td>
+                    <td> {{record.emp_sin}} </td>
+                    <td> {{record.emp_account_Number}} </td>
+                    <td> {{record.emp_payrate}} </td>
+                    <td> {{record.pay_cycle}} </td>
+                    <td> <a href="{% url 'record-payroll' record.fk_emp_id %}"> Modify </a> </td>
+
+                </tr>
+            {% endfor %}
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+    <br>
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record-payroll' %}"> Add New record </a>
+
+{% endblock %}

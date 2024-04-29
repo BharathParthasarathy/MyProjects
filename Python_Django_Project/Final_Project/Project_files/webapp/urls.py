@@ -1,0 +1,38 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name=""),
+    path('register', views.register, name="register"),
+    path('my-login', views.my_login, name="my-login"),
+    path('dashboard', views.dashboard,name="dashboard"),
+    path('user-logout', views.user_logout,name="user-logout"),
+    path('working-time', views.workingtime, name="working-time"),
+    path('break-time', views.breaktime, name="break-time"),
+    #CRUD
+    path('create-record', views.create_record, name="create-record"),
+    path('update-record/<int:pk>', views.update_record, name="update-record"),
+    path('record/<int:pk>', views.singular_record, name="record"),
+    path('delete-record/<int:pk>', views.delete_record, name="delete-record"),
+    path('date-record', views.create_event, name="date-record"),
+    path('schedule', views.schedule_shift, name="schedule"),
+    path('time-off', views.time_off, name="time-off"),
+    path('manage-schedule', views.manage_schedule, name="manage-schedule"),
+    path('my-shift', views.my_shift, name="my-shift"),
+    path('payroll', views.emp_payroll, name="payroll"),
+    path('toff-record/<int:pk>', views.timeoff_record, name="toff-record"),
+    path('delete-record-toff/<int:pk>', views.delete_record_timeoff, name="delete-record-toff"),
+    path('create-record-toff', views.create_record_timeoff, name="create-record-toff"),
+    path('create-record-shcedule', views.create_record_schedule, name="create-record-shcedule"),
+    path('update-create-record-shcedule/<int:pk>', views.record_schedule_update, name="update-create-record-shcedule"),
+    path('custom_queryprocessing/', views.custom_query_processing, name="custom_queryprocessing"),
+    path('calc_payroll/<int:pk>', views.calc_pay, name="calc_payroll"),
+    path('create-record-payroll', views.create_record_payroll, name="create-record-payroll"),
+    path('update-record-payroll/<int:pk>', views.update_record_payroll, name="update-record-payroll"),
+    path('record-payroll/<int:pk>', views.singular_record_payroll, name="record-payroll"),
+    path('delete-record-payroll/<int:pk>', views.delete_record_payroll, name="delete-record-payroll"),
+    path('working-time-new', views.workingtime_new, name="working-time-new"),
+    path('working-time-punchout', views.working_time_punchout, name="working-time-punchout"),
+    path('breaktime-punchin', views.breaktime_punchin, name="breaktime-punchin"),
+    path('breaktime-punchout',views.breaktime_punchout, name="breaktime-punchout"),
+]

@@ -1,0 +1,25 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <strong>
+
+        {{record.fk_emp_id.emp_fname|upper}}
+        {{record.fk_emp_id.emp_lname|upper}}
+
+    </strong>
+
+    <div class="card-body">
+        <p> <strong> Employee ID </strong> {{record.fk_emp_id}} </p> 
+        <p> <strong> Employee Designation </strong> {{record.fk_emp_id.emp_designation}} </p>
+        <p> <strong> Pay Cycle </strong> {{record.pay_cycle}} </p>
+        <p> <strong> Deposit Account </strong> {{record.emp_account_Number}} </p>
+        <p> <strong> Total Cashout </strong> {{result}} </p>
+
+    </div>
+
+</div>
+<br>
+
+{% endblock %}

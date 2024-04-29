@@ -1,0 +1,23 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <strong>
+
+        {{record.emp_lname|upper}}
+        {{record.emp_fname|upper}}
+
+    </strong>
+
+    <div class="card-body">
+
+        <p> <strong> punch_out time </strong> {{records.punch_out}} </p>
+        <p> <strong> punch_out time </strong> {{records1.working_day}} </p>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

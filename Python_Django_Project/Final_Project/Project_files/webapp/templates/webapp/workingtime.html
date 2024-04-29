@@ -1,0 +1,25 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+          <br>
+          <div class="text-center">
+              <a href="{% url 'dashboard' %}"> Home </a>
+              <br>
+              <a href="{% url 'user-logout' %}"> sign out</a>
+          </div>
+          <br>
+          <hr>
+
+          <a class="btn btn-primary" type="button" href="{% url 'working-time' %}"> Login </a>
+          <br>
+          <br>
+          <a class="btn btn-primary" type="button" href="{% url 'break-time' %}"> Break </a>
+
+          <hr>
+    
+    </body>
+</html>
+
+{% endblock %}

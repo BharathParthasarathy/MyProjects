@@ -1,0 +1,22 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <strong>
+
+        {{record.emp_lname|upper}}
+        {{record.emp_fname|upper}}
+
+    </strong>
+
+    <div class="card-body">
+        <p4> <strong> Break Started at </strong> {{records2.break_start}} </p4> 
+        <p4> <strong> Working Day </strong> {{records1.break_end}} </p4>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+        <br>
+          <div class="text-center">
+              <a href="{% url 'dashboard' %}"> Home </a>
+              <br>
+              <a href="{% url 'user-logout' %}"> sign out</a>
+          </div>
+          <br>
+          <hr>
+<head>
+
+    <br>
+
+    <a class="btn btn-primary" type="button" href="{% url 'schedule' %}"> My schedule</a>
+    <a class="btn btn-primary" type="button" href="{% url 'time-off' %}"> Time off Request </a>
+    <br>
+    <br>
+    
+    <a class="btn btn-primary" type="button" href="{% url 'manage-schedule' %}"> Manage Schedule </a>
+  
+</head>
+
+</html>
+
+{% endblock %}

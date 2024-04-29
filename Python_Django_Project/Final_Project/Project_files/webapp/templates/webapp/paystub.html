@@ -1,0 +1,40 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Generate Paystub </h5>
+    <hr>
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col"> Employee ID </th>
+                <th scope="col"> Employee Designation </th>
+                <th scope="col"> Employee Name </th>
+                <th scope="col"> Employee payrate </th>
+                <th scope="col"> Total Hours worked </th>
+                <th scope="col"> Total Pay </th>
+
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+            {% for record in records %}
+                <tr>
+                    <td> {{record.fk_emp_id}} </td>
+                    <td> {{record.fk_emp_id.emp_designation}} </td>
+                    <td> {{record.fk_emp_id.emp_fname}}  {{record.fk_emp_id.emp_lname}} </td>
+                    <td> {{record.emp_payrate}} </td>
+                    <td> {{record.fk_schedule_id.total_hours}} </td>
+                    <td> <a href="{% url 'calc_payroll' record.fk_emp_id %}"> calculate </a> </td>
+                    
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% endblock %}

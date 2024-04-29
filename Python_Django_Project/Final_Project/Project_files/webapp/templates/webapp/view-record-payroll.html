@@ -1,0 +1,35 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <strong>
+
+        {{records.fk_emp_id.emp_fname|upper}}  {{records.fk_emp_id.emp_lname|upper}} 
+        
+
+    </strong>
+
+    <div class="card-body">
+        <p> <strong> ID: </strong> {{records.fk_emp_id}} </p> 
+        <p> <strong> Email </strong> {{records.emp_sin}} </p>
+        <p> <strong> Phone number </strong> {{records.emp_account_Number}} </p>
+        <p> <strong> Job Title </strong> {{records.emp_payrate}} </p>
+        <p> <strong> Address </strong> {{records.pay_cycle}} </p>
+
+    </div>
+
+</div>
+<br>
+
+    <a href="{% url 'payroll' %}" class="btn btn-secondary"> Back </a> 
+    
+    &nbsp; 
+
+    <a href="{% url 'update-record-payroll' records.fk_emp_id %}" class="btn btn-info"> Update</a>
+
+    &nbsp;
+
+    <a href="{% url 'delete-record-payroll' records.payroll_table_id %}" class="btn btn-danger"> Delete </a>
+
+{% endblock %}
