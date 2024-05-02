@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second-application
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: second-application
+  template:
+    metadata:
+      labels:
+        app: second-application
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: topology.kubernetes.io/zone
+                operator: In
+                values:
+                - us-west-2b
+                - us-west-2a
+                - us-west-2c
+      containers:
+      - name: second-application-container
+        image: nginx
