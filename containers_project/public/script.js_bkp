@@ -1,0 +1,56 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const employeeIdInput = document.getElementById('employeeId');
+    const employeeNameInput = document.getElementById('employeeName');
+    
+    document.getElementById('startWork').addEventListener('click', () => {
+        const employeeId = employeeIdInput.value;
+        const employeeName = employeeNameInput.value;
+        fetch('/api/start', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ employeeId, employeeName })
+        })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(error => console.error('Error:', error));
+    });
+
+    document.getElementById('endWork').addEventListener('click', () => {
+        const employeeId = employeeIdInput.value;
+        fetch('/api/end', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ employeeId })
+        })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(error => console.error('Error:', error));
+    });
+
+    document.getElementById('startBreak').addEventListener('click', () => {
+        const employeeId = employeeIdInput.value;
+        const breakStart = new Date();
+        fetch('/api/break', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ employeeId, breakStart })
+        })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(error => console.error('Error:', error));
+    });
+
+    document.getElementById('endBreak').addEventListener('click', () => {
+        const employeeId = employeeIdInput.value;
+        const breakEnd = new Date();
+        fetch('/api/break', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ employeeId, breakEnd })
+        })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(error => console.error('Error:', error));
+    });
+});
+

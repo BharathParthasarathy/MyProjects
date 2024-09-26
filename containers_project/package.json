@@ -1,0 +1,17 @@
+{
+  "name": "employee-timer",
+  "version": "1.0.0",
+  "description": "A simple employee timer app with work and break logging",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Bharath",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "mysql": "^2.18.1"
+  }
+}
+
